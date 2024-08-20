@@ -21,12 +21,15 @@ export class InvoiceComponent implements OnInit {
 
   invoice!: Invoice;
 
-  constructor(private invoiceService: InvoiceService) { 
+  constructor(private service: InvoiceService) { 
     
   }
   
   ngOnInit(): void {
-    this.invoice = this.invoiceService.getInvoice();
+    this.invoice = this.service.getInvoice();
   }
 
+  removeItem(id: number){
+    this.invoice = this.service.remove(id);
+  }
 }
